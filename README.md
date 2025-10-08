@@ -123,7 +123,7 @@ npm run serve
 
 ## Login Credentials
 - Email: `fatima.patel@moderntech.com` (Or any hr email in database)
-- Password: `fatima.patel@moderntech.com`
+- Password: `ModernTech@2025`
 
 ## Usage
 1. Log in using provided credentials.
