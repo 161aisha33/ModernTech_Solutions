@@ -99,7 +99,7 @@ export default {
     };
   },
 },mounted() {
-  axios.get("http://localhost:9090/employee_information")
+  axios.get(`${process.env.VUE_APP_API_URL}/employee_information`)
     .then(response => {
       this.employees = response.data;
     })

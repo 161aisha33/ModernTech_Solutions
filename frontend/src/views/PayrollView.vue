@@ -59,7 +59,7 @@ export default {
   async viewPayslip(employee) {
     console.log("Selected employee:", employee); // 👈 ADD THIS LINE
     try {
-      const res = await fetch(`http://localhost:9090/payroll/${employee.employeeId}`);
+      const res = await fetch(`${process.env.VUE_APP_API_URL}/payroll/${employee.employeeId}`);
       const data = await res.json();
 
       this.selectedEmployee = {
@@ -79,7 +79,7 @@ export default {
   },
 },
   mounted() {
-  fetch("http://localhost:9090/payroll")
+  fetch(`${process.env.VUE_APP_API_URL}/payroll`)
     .then((res) => res.json())
     .then((data) => {
       console.log("Payroll Data Fetched:", data); // ✅ Add this

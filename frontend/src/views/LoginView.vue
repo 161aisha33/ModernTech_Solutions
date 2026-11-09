@@ -45,7 +45,7 @@ export default {
     methods: {
   async validatePassword() {
     try {
-      const res = await axios.post('http://localhost:9090/login', {
+      const res = await axios.post(`${process.env.VUE_APP_API_URL}/login`, {
         email: this.email,
         password: this.password
       });

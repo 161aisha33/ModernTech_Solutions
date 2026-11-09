@@ -153,7 +153,7 @@ export default {
  methods: {
   async submitForm() {
   try {
-    await axios.post('http://localhost:9090/employee_information', this.form);
+    await axios.post(`${process.env.VUE_APP_API_URL}/employee_information`, this.form);
     await this.$store.dispatch('getEmployeeInfo');
     this.showForm = false;
     this.form = {
@@ -172,7 +172,7 @@ export default {
 },
   async confirmDelete() {
   try {
-    await axios.delete(`http://localhost:9090/employee_information/${this.employeeToDeleteId}`);
+    await axios.delete(`${process.env.VUE_APP_API_URL}/employee_information/${this.employeeToDeleteId}`);
     await this.$store.dispatch('getEmployeeInfo');
     this.employeeToDeleteId = "";
     this.showDelete = false;

@@ -10,7 +10,9 @@ export const pool = mysql.createPool({
     port: process.env.DB_PORT,        
     user: process.env.DB_USER,        
     password: process.env.DB_PASSWORD, 
-    host: process.env.DB_HOST          
+    host: process.env.DB_HOST,
+    // Most hosted MySQL providers require SSL. Set DB_SSL=true in production.
+    ssl: process.env.DB_SSL === 'true' ? { rejectUnauthorized: true } : undefined
 });
 
 

@@ -16,7 +16,7 @@ export default createStore({
   actions: {
     async getEmployeeInfo({ commit }) {
       try {
-        const response = await axios.get('http://localhost:9090/employee_information');
+        const response = await axios.get(`${process.env.VUE_APP_API_URL}/employee_information`);
         commit('setEmployeeInfo', response.data);
       } catch (error) {
         console.error(error);

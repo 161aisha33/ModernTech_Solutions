@@ -107,11 +107,13 @@ DROP TABLE IF EXISTS `leaverequests`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `leaverequests` (
+  `leave_id` int NOT NULL AUTO_INCREMENT,
   `Employee_Information_ID` int NOT NULL,
   `from_date` date NOT NULL,
   `to_date` date NOT NULL,
   `reason` text,
   `status` enum('Pending','Approved','Rejected') DEFAULT 'Pending',
+  PRIMARY KEY (`leave_id`),
   KEY `Employee_Information_ID` (`Employee_Information_ID`),
   CONSTRAINT `leaverequests_ibfk_1` FOREIGN KEY (`Employee_Information_ID`) REFERENCES `employee_information` (`Employee_Information_ID`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
@@ -123,7 +125,7 @@ CREATE TABLE `leaverequests` (
 
 LOCK TABLES `leaverequests` WRITE;
 /*!40000 ALTER TABLE `leaverequests` DISABLE KEYS */;
-INSERT INTO `leaverequests` VALUES (1,'2025-07-22','2025-07-22','Sick Leave','Approved'),(2,'2025-07-15','2025-07-15','Family Responsibility','Rejected'),(3,'2025-07-10','2025-07-10','Medical Appointment','Approved'),(4,'2025-07-20','2025-07-20','Bereavement','Approved'),(5,'2024-12-01','2024-12-01','Childcare','Pending'),(6,'2025-07-18','2025-07-18','Sick Leave','Approved'),(9,'2025-07-19','2025-07-19','Childcare','Rejected'),(13,'2025-07-18','2025-07-19','Vacation','Approved'),(14,'2025-07-23','2025-07-23','Sick Leave','Pending'),(15,'2025-07-22','2025-07-22','Childcare','Rejected'),(8,'2025-07-30','2025-07-31','Medical Appointment','Approved'),(5,'2025-07-24','2025-07-16','Sick Leave','Pending'),(5,'2025-07-24','2025-07-31','Sick Leave','Pending'),(12,'2025-07-16','2025-07-17','Sick Leave','Pending');
+INSERT INTO `leaverequests` (`Employee_Information_ID`,`from_date`,`to_date`,`reason`,`status`) VALUES (1,'2025-07-22','2025-07-22','Sick Leave','Approved'),(2,'2025-07-15','2025-07-15','Family Responsibility','Rejected'),(3,'2025-07-10','2025-07-10','Medical Appointment','Approved'),(4,'2025-07-20','2025-07-20','Bereavement','Approved'),(5,'2024-12-01','2024-12-01','Childcare','Pending'),(6,'2025-07-18','2025-07-18','Sick Leave','Approved'),(9,'2025-07-19','2025-07-19','Childcare','Rejected'),(13,'2025-07-18','2025-07-19','Vacation','Approved'),(14,'2025-07-23','2025-07-23','Sick Leave','Pending'),(15,'2025-07-22','2025-07-22','Childcare','Rejected'),(8,'2025-07-30','2025-07-31','Medical Appointment','Approved'),(5,'2025-07-24','2025-07-16','Sick Leave','Pending'),(5,'2025-07-24','2025-07-31','Sick Leave','Pending'),(12,'2025-07-16','2025-07-17','Sick Leave','Pending');
 /*!40000 ALTER TABLE `leaverequests` ENABLE KEYS */;
 UNLOCK TABLES;
 

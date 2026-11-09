@@ -30,7 +30,7 @@ export default {
 
     onMounted(async () => {
       try {
-        const res = await fetch(`http://localhost:9090/payroll/${props.employee.employeeId}`);
+        const res = await fetch(`${process.env.VUE_APP_API_URL}/payroll/${props.employee.employeeId}`);
         const data = await res.json();
         payroll.value = data;
         console.log("Fetched payroll:", data);

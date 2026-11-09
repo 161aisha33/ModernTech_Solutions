@@ -46,7 +46,7 @@ const employees = ref([])
 
 onMounted(async () => {
   try {
-    const res = await fetch('http://localhost:9090/performance')
+    const res = await fetch(`${process.env.VUE_APP_API_URL}/performance`)
     if (!res.ok) throw new Error('Network response was not ok')
     const data = await res.json()
     console.log(' Performance reviews:', data)

@@ -146,7 +146,7 @@ export default {
     async selectAttendanceEmployee(employee) {
       const clone = JSON.parse(JSON.stringify(employee));
       try {
-        const attendanceRes = await axios.get(`http://localhost:9090/attendance/${employee.employeeId}`);
+        const attendanceRes = await axios.get(`${process.env.VUE_APP_API_URL}/attendance/${employee.employeeId}`);
         clone.attendance = attendanceRes.data;
       } catch (error) {
         clone.attendance = [];
@@ -163,7 +163,7 @@ export default {
   try {
     const newRecords = this.attendanceEmployee.attendance.filter(r => r.isNew);
     for (const rec of newRecords) {
-      await axios.post('http://localhost:9090/attendance', {
+      await axios.post(`${process.env.VUE_APP_API_URL}/attendance`, {
       Employee_Information_ID: this.attendanceEmployee.employeeId,
       attendance_date: rec.attendance_date,
       status: rec.status  
@@ -188,7 +188,7 @@ export default {
         reason: req.reason,
         status: req.status
       });
-    await axios.post('http://localhost:9090/leave', {
+    await axios.post(`${process.env.VUE_APP_API_URL}/leave`, {
   Employee_Information_ID: this.leaveEmployee.employeeId,
   from_date: req.from_date,
   to_date: req.to_date,
@@ -231,7 +231,7 @@ this.selectedLeaveEmployeeId = '';
     async selectLeaveEmployee(employee) {
   const clone = JSON.parse(JSON.stringify(employee));
   try {
-    const leaveRes = await axios.get(`http://localhost:9090/leave/${employee.employeeId}`);
+    const leaveRes = await axios.get(`${process.env.VUE_APP_API_URL}/leave/${employee.employeeId}`);
     clone.leaveRequests = leaveRes.data;
   } catch (error) {
     clone.leaveRequests = [];

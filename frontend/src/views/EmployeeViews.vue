@@ -21,7 +21,7 @@ const employees = ref([]);
 
 async function fetchEmployees() {
   try {
-    const response = await axios.get("http://localhost:9090/employee_information");
+    const response = await axios.get(`${process.env.VUE_APP_API_URL}/employee_information`);
     employees.value = response.data;
   } catch (error) {
     console.error("Failed to fetch employees:", error);
@@ -30,7 +30,7 @@ async function fetchEmployees() {
 
 async function handleAddEmployee(newEmployee) {
   try {
-    await axios.post("http://localhost:9090/employee_information", newEmployee);
+    await axios.post(`${process.env.VUE_APP_API_URL}/employee_information`, newEmployee);
     await fetchEmployees(); // Refresh the list after adding
   } catch (error) {
     console.error("Failed to add employee:", error);
