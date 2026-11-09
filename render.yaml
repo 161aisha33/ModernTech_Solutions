@@ -23,3 +23,5 @@ services:
         value: defaultdb
       - key: DB_SSL
         value: "true"
+      - key: DB_CA_CERT
+        sync: false
