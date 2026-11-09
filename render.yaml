@@ -25,3 +25,5 @@ services:
         value: "true"
       - key: DB_CA_CERT
         sync: false
+      - key: JWT_SECRET
+        generateValue: true
